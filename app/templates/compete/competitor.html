@@ -1,0 +1,50 @@
+<!-- Output area for this code -->
+<div id="competitor-output">
+    <div id="competitor-navbar">
+        {% include "compete/includes/navbar.html" %}
+    </div>
+    <div class="row" id="competitor-content">
+        <div class="col-5" id="competitor-tabs">{% include "compete/includes/tabs/tabs.html" %}</div>
+        <div class="col-7" id="competitor-editor">{% include "compete/includes/editor/editor.html" %}</div>
+    </div>
+</div>
+
+<!-- A handlebars template for the competitor page -->
+ {%raw%}
+<script id="competitor-template" type="text/x-handlebars-template">
+  <div class='competitor'></div>
+</script>
+{%endraw%}
+
+<!-- Code to render this template (raw so Jinja doesn't interfere)-->
+ {%raw%}
+<script>
+  const compSource = document.getElementById('competitor-template').innerHTML;
+  const compTemplate = Handlebars.compile(compSource);
+  const compContext = {}; // Change context to relevant template variables
+  const compHtml = compTemplate(compContext);
+  document.getElementById('competitor-output').innerHTML += compHtml; // Probably look into a better way of doing this?
+</script>
+{%endraw%}
+
+<!-- Styling for this block of code -->
+<style>
+  #competitor-output {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;    
+  }
+  #competitor-content {
+    display: flex;
+    flex-grow: 1;
+    padding: 2vh;
+  }
+  #competitor-tabs {
+    display: flex;
+    flex-grow: 1;
+  }
+  #competitor-editor {
+    display: flex;
+    flex-grow: 1;
+  }
+</style>

@@ -1,0 +1,26 @@
+<!-- Output area for this code -->
+<div id="mininav-output">
+
+</div>
+
+<!-- A handelbars template for navigating the info tabs during competition (problem desc, testcases, etc.) -->
+ {%raw%}
+<script id="mininav-template" type="text/x-handlebars-template">
+    
+</script>
+{%endraw%}
+
+<!-- Code to render the template -->
+ {%raw%}
+<script>
+  const mininavSource = document.getElementById('mininav-template').innerHTML;
+  const mininavTemplate = Handlebars.compile(mininavSource);
+  const mininavContext = {}; // Change context to relevant template variables
+  const mininavHtml = mininavTemplate(mininavContext);
+  document.getElementById('mininav-output').innerHTML += mininavHtml; // Probably look into a better way of doing this?
+</script>
+{%endraw%}
+
+<!-- Styling for this block of code -->
+<style>
+</style>
