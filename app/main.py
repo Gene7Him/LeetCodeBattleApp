@@ -3,7 +3,7 @@ from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import HTMLResponse
 from fastapi.requests import Request
-from sqlalchemy.ext.asyncio import AsyncSession
+#from sqlalchemy.ext.asyncio import AsyncSession
 from .database import models, schemas, database
 
 app = FastAPI()
